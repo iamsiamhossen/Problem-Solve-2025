@@ -24,6 +24,23 @@ using namespace std;
 #define INF 1001001001
 void solve()
 {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int &x : a)
+        cin >> x;
+    int ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int sum = 0, mn = INF;
+        for (int j = i; j < n; j++)
+        {
+            sum += a[j];
+            mn = min(mn, a[j]);
+            ans = max(ans, sum - mn);
+        }
+    }
+    cout << ans << endl;
 }
 int32_t main()
 {
