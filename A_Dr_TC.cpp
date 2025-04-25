@@ -1,6 +1,6 @@
 /**
  * Author: iamsiamhossen
- * Created: 25-04-2025 22:28:43
+ * Created: 24-04-2025 20:37:46
  **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -26,27 +26,27 @@ void solve()
 {
     int n;
     cin >> n;
-    vector<int> a(n);
-    for(int i = 0; i < n; i++)
+    string s;
+    cin >> s;
+    int cnt1 = 0;
+    for (auto u : s)
     {
-        cin >> a[i];
-    } 
-    map<int, int> mp;
-    for(int i = 0; i < n; i++)
-    {
-        mp[a[i]]++;
+        if (u == '1')
+            cnt1++;
     }
-   if(mp.size()==1) Yes;
-   else if(mp.size()==2)
-   {
-      int cnt= max(mp.begin()->second, mp.rbegin()->second);
-      int cnt2= n-cnt;
-      if(cnt2==cnt|| cnt2==cnt-1) Yes;
-      else No;  
-
-   }
-   else No;
-
+    int ans = 0;
+    for (auto u : s)
+    {
+        if (u == '1')
+        {
+            ans += cnt1 - 1;
+        }
+        else
+        {
+            ans += cnt1 + 1;
+        }
+    }
+    cout << ans << endl;
 }
 int32_t main()
 {

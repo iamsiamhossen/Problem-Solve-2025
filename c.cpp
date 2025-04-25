@@ -1,6 +1,5 @@
 /**
  * Author: iamsiamhossen
- * Created: 25-04-2025 22:28:43
  **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,38 +14,38 @@ using namespace std;
 #define Unique(X) (X).erase(unique((X).begin(), (X).end()), (X).end())
 #define YES cout << "YES\n"
 #define NO cout << "NO\n"
-#define Yes cout << "Yes\n"
-#define No cout << "No\n"
+#define YES cout << "YES\n"
+#define NO cout << "NO\n"
 // MOD
 #define EPS 1e-9
 #define PI 3.1415926535897932384626433832795
 #define MOD 1000000007
 #define INF 1001001001
+bool isPrime(int n)
+{
+    int i, m = sqrtl(n);
+    for (i = 2; i <= m; i++)
+    {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
+}
 void solve()
 {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for(int i = 0; i < n; i++)
+    int x, k;
+    cin >> x >> k;
+    if (x == 1 && k == 2)
+        YES;
+    else if (x == 1 || k > 1)
+        NO;
+    else
     {
-        cin >> a[i];
-    } 
-    map<int, int> mp;
-    for(int i = 0; i < n; i++)
-    {
-        mp[a[i]]++;
+        if (isPrime(x))
+            YES;
+        else
+            NO;
     }
-   if(mp.size()==1) Yes;
-   else if(mp.size()==2)
-   {
-      int cnt= max(mp.begin()->second, mp.rbegin()->second);
-      int cnt2= n-cnt;
-      if(cnt2==cnt|| cnt2==cnt-1) Yes;
-      else No;  
-
-   }
-   else No;
-
 }
 int32_t main()
 {

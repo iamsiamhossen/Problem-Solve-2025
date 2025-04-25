@@ -2,6 +2,7 @@
   "liveServer.settings.port": 5501,
   "files.associations": {
     "iostream": "cpp",
-    "future": "cpp"
+    "future": "cpp",
+    "random": "cpp"
   }
 }

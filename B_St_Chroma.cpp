@@ -1,6 +1,6 @@
 /**
  * Author: iamsiamhossen
- * Created: 25-04-2025 22:28:43
+ * Created: 24-04-2025 21:56:31
  **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -24,29 +24,28 @@ using namespace std;
 #define INF 1001001001
 void solve()
 {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for(int i = 0; i < n; i++)
+    int a, b;
+    cin >> a >> b;
+    if (a == b)
     {
-        cin >> a[i];
-    } 
-    map<int, int> mp;
-    for(int i = 0; i < n; i++)
-    {
-        mp[a[i]]++;
+        for (int i = 0; i < a; i++)
+        {
+            cout << i << " ";
+        }
+        cout << endl;
     }
-   if(mp.size()==1) Yes;
-   else if(mp.size()==2)
-   {
-      int cnt= max(mp.begin()->second, mp.rbegin()->second);
-      int cnt2= n-cnt;
-      if(cnt2==cnt|| cnt2==cnt-1) Yes;
-      else No;  
-
-   }
-   else No;
-
+    else
+    {
+        for (int i = 0; i < a; i++)
+        {
+            if (i == b)
+               continue;
+            else
+                cout << i << " ";
+        }
+        cout << b << endl;
+    }
+    
 }
 int32_t main()
 {

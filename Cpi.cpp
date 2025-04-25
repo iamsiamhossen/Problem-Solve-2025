@@ -1,6 +1,6 @@
 /**
  * Author: iamsiamhossen
- * Created: 25-04-2025 22:28:43
+ * Created: 20-04-2025 12:42:14
  **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -22,31 +22,43 @@ using namespace std;
 #define PI 3.1415926535897932384626433832795
 #define MOD 1000000007
 #define INF 1001001001
+bool matchesRules(const string &s)
+{
+
+    if (s == "a")
+        return true;
+
+    if (s == "abb")
+        return true;
+
+    bool trackb = false;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (!trackb)
+        {
+            if (s[i] == 'b')
+                trackb = true;
+            else if (s[i] != 'a')
+                return false;
+        }
+        else
+        {
+            if (s[i] != 'b')
+                return false;
+        }
+    }
+
+    return trackb && s[0] == 'a';
+}
 void solve()
 {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for(int i = 0; i < n; i++)
-    {
-        cin >> a[i];
-    } 
-    map<int, int> mp;
-    for(int i = 0; i < n; i++)
-    {
-        mp[a[i]]++;
-    }
-   if(mp.size()==1) Yes;
-   else if(mp.size()==2)
-   {
-      int cnt= max(mp.begin()->second, mp.rbegin()->second);
-      int cnt2= n-cnt;
-      if(cnt2==cnt|| cnt2==cnt-1) Yes;
-      else No;  
+    string s;
+    cin >> s;
+    if (matchesRules(s)==true)
+        cout << "string match: " << s << endl;
 
-   }
-   else No;
-
+    else
+        cout << "string not match: " << s << endl;
 }
 int32_t main()
 {
