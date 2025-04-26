@@ -1,7 +1,7 @@
 /**
- * Author: iamsiamhossen
- * Created: 25-04-2025 22:46:42
- **/
+* Author: iamsiamhossen
+* Created: 26-04-2025 01:21:45
+**/
 #include <bits/stdc++.h>
 using namespace std;
 // fastread
@@ -24,28 +24,22 @@ using namespace std;
 #define INF 1001001001
 void solve()
 {
-    int n, m;
-    cin >> n >> m;
-    string x;
-    cin >> x;
-    string s;
-    cin >> s;
-
-    int cnt = 0;
-    for (int i = 1; i <= 6; i++)
+    int n,k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for(int i = 0; i < n; i++)
     {
-        if (x.find(s) != string::npos)
-        {
-            cout << cnt << endl;
-            return;
-        }
-        else
-        {
-            cnt++;
-            x += x;
-        }
+        cin >> a[i];
     }
-    cout << -1 << endl;
+    auto it = find(a.begin(), a.end(), k);
+    if(it != a.end())
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 }
 int32_t main()
 {

@@ -1,6 +1,6 @@
 /**
  * Author: iamsiamhossen
- * Created: 25-04-2025 22:46:42
+ * Created: 26-04-2025 22:48:27
  **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -24,34 +24,32 @@ using namespace std;
 #define INF 1001001001
 void solve()
 {
-    int n, m;
-    cin >> n >> m;
-    string x;
-    cin >> x;
-    string s;
-    cin >> s;
-
-    int cnt = 0;
-    for (int i = 1; i <= 6; i++)
+    int n, x;
+    cin >> n >> x;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
     {
-        if (x.find(s) != string::npos)
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end());
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] > x)
         {
-            cout << cnt << endl;
+            cout << i << endl;
             return;
         }
-        else
-        {
-            cnt++;
-            x += x;
-        }
+        x -= a[i];
     }
-    cout << -1 << endl;
+    cout << n << endl;
+
+    // cout << cnt;
 }
 int32_t main()
 {
     fastread();
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     for (int t = 1; t <= tc; t++)
     {
         // cout << "Case " << t << ": ";
