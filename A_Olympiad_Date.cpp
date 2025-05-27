@@ -26,13 +26,54 @@ void solve()
 {
     int n;
     cin >> n;
-    vector<int> v(n);
-    vector<int> a={0, 1, 0, 3, 2, 0, 2, 5};
+    vector<int> a(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> v[i];
+        cin >> a[i];
     }
-  
+    int onecount = 0, twocount = 0, threecount = 0, zerocount = 0, fivecount = 0;
+    int cnt = 0;
+    int ans = -1;
+    for (int i = 0; i < n; i++)
+    {
+
+        if (a[i] == 1 and onecount < 1)
+            onecount++;
+        else if (a[i] == 2 and twocount < 2)
+            twocount++;
+        else if (a[i] == 3 and threecount < 1)
+            threecount++;
+        else if (a[i] == 0 and zerocount < 3)
+            zerocount++;
+        else if (a[i] == 5 and fivecount < 1)
+            fivecount++;
+
+        if (onecount + twocount + threecount + zerocount + fivecount == 8)
+        {
+            if (i == n - 1)
+            {
+                ans = n;
+                cout<<ans<<endl;
+                return;
+            }
+            else
+            {
+                ans = i;
+                break;
+            }
+            // cout<< i << endl;
+        }
+    }
+    // cout << ans << endl;
+    if (onecount + twocount + threecount + zerocount + fivecount != 8)
+    {
+        cout << 0 << endl;
+    }
+    else
+    {
+        cout << ans + 1 << endl;
+    }
+    // cout << n - cnt << endl;
 }
 int32_t main()
 {
