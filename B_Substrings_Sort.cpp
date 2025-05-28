@@ -1,3 +1,7 @@
+/**
+ * Author: iamsiamhossen
+ * Created: 28-05-2025 22:23:52
+ **/
 #include <bits/stdc++.h>
 using namespace std;
 // fastread
@@ -6,7 +10,7 @@ using namespace std;
 #define endl "\n"
 #define int long long
 #define float double
-#define all(X) (X).begin(), (X).end()
+#define all(X) (X).rbegin(), (X).rend()
 #define Reverse(X) reverse(All(X))
 #define Unique(X) (X).erase(unique((X).begin(), (X).end()), (X).end())
 #define YES cout << "YES\n"
@@ -20,29 +24,35 @@ using namespace std;
 #define INF 1001001001
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
-    string s;
-    cin >> s;
+    int n;
+    cin >> n;
+    vector<string> s(n);
+    for (int i = 0; i < n; ++i)
+        cin >> s[i];
 
-    int ze = count(s.begin(), s.end(), '0');
-    int one = count(s.begin(), s.end(), '1');
+    // Shala lamda function r koto jalabi
+    sort(s.begin(), s.end(), [&](const string &s, const string &t)
+         { return s.size() < t.size(); });
+         
 
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < n - 1; ++i)
     {
-        if (one > ze)
-            one -= 2;
-        else
-            ze -= 2;
+        if (s[i + 1].find(s[i]) == string::npos)
+        {
+            NO;
+            return;
+        }
     }
-    if(one==ze) YES;
-    else NO;
+
+    YES;
+    for (auto u : s)
+        cout << u << endl;
 }
 int32_t main()
 {
     fastread();
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     for (int t = 1; t <= tc; t++)
     {
         // cout << "Case " << t << ": ";

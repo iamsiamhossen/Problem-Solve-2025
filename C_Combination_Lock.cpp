@@ -1,3 +1,7 @@
+/**
+ * Author: iamsiamhossen
+ * Created: 28-05-2025 00:31:34
+ **/
 #include <bits/stdc++.h>
 using namespace std;
 // fastread
@@ -20,23 +24,20 @@ using namespace std;
 #define INF 1001001001
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
-    string s;
-    cin >> s;
-
-    int ze = count(s.begin(), s.end(), '0');
-    int one = count(s.begin(), s.end(), '1');
-
-    for (int i = 0; i < k; i++)
+    int n;
+    cin >> n;
+    if (n & 1)
     {
-        if (one > ze)
-            one -= 2;
-        else
-            ze -= 2;
+        for (int i = n; i > 0; i--)
+        {
+            cout << i << " ";
+        }
+        cout << endl;
     }
-    if(one==ze) YES;
-    else NO;
+    else
+    {
+        cout << -1 << endl;
+    }
 }
 int32_t main()
 {

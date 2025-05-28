@@ -1,0 +1,1 @@
+{"name":"Local: PrecomputeUsingHash","url":"d:\\Phitron\\Problem Solve 2025\\PrecomputeUsingHash.cpp","tests":[{"id":1748441027280,"input":"1\n5\n3 4 2 4 1\n4\n1\n2\n3\n4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Problem Solve 2025\\PrecomputeUsingHash.cpp","group":"local","local":true}
