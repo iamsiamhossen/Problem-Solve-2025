@@ -1,6 +1,6 @@
 /**
  * Author: iamsiamhossen
- * Created: 10-08-2025 20:48:33
+ * Created: 11-08-2025 22:16:22
  **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -22,35 +22,47 @@ using namespace std;
 #define PI 3.1415926535897932384626433832795
 #define MOD 1000000007
 #define INF 1001001001
+vector<int> sliding_min(vector<int> a, int k)
+{
+    deque<int> q;
+    vector<int> r;
+    for (int i = 0; i < a.size(); i++)
+    {
+        while (!q.empty() && a[q.back()] >= a[i])
+            q.pop_back();
+        q.push_back(i);
+        if (q.front() <= i - k)
+            q.pop_front();
+        if (i >= k - 1)
+            r.push_back(a[q.front()]);
+    }
+    return r;
+}
+
 void solve()
 {
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
+    int n, k;
+    cin >> n >> k;
+    int x, a, b, c;
+    cin >> x >> a >> b >> c;
+    vector<int> v(n);
+    v[0] = x;
+    for (int i = 1; i < n; i++)
     {
-        if (i & 1)
-        {
-            cout << "-1 ";
-        }
-        else
-        {
-            if (i == n)
-            {
-                cout << "2";
-            }
-            else
-            {
-                cout << "3 ";
-            }
-        }
+        v[i] = (a * v[i - 1] + b) % c;
     }
-    cout << endl;
+    vector<int> z = sliding_min(v, k);
+    int ans = 0;
+    for (auto u : z)
+        ans ^= u;
+
+    cout<<ans<<endl;
 }
 int32_t main()
 {
     fastread();
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     for (int t = 1; t <= tc; t++)
     {
         // cout << "Case " << t << ": ";

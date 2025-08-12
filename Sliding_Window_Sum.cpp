@@ -1,6 +1,6 @@
 /**
  * Author: iamsiamhossen
- * Created: 10-08-2025 20:48:33
+ * Created: 11-08-2025 22:16:22
  **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -24,33 +24,42 @@ using namespace std;
 #define INF 1001001001
 void solve()
 {
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
+    int n, k;
+    cin >> n >> k;
+    int x, a, b, c;
+    cin >> x >> a >> b >> c;
+    vector<int> v(n);
+    v[0] = x;
+    for (int i = 1; i < n; i++)
     {
-        if (i & 1)
-        {
-            cout << "-1 ";
-        }
-        else
-        {
-            if (i == n)
-            {
-                cout << "2";
-            }
-            else
-            {
-                cout << "3 ";
-            }
-        }
+        v[i] = (a * v[i - 1] + b) % c;
     }
-    cout << endl;
+    vector<int> presum(n);
+    presum[0] = v[0];
+    for (int i = 1; i < n; i++)
+    {
+        presum[i] = presum[i - 1] + v[i];
+    }
+
+    int sum = 0, ans = 0, j = 0;
+    for (int i = k - 1; i < n; i++)
+    {
+        sum = 0;
+        sum += presum[i];
+        if (i != k - 1)
+        {
+            sum -= presum[j];
+            j++;
+        }
+        ans ^= sum;
+    }
+    cout << ans << endl;
 }
 int32_t main()
 {
     fastread();
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     for (int t = 1; t <= tc; t++)
     {
         // cout << "Case " << t << ": ";

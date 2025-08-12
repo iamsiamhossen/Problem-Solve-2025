@@ -1,6 +1,6 @@
 /**
  * Author: iamsiamhossen
- * Created: 10-08-2025 20:48:33
+ * Created: 12-08-2025 15:25:31
  **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -24,27 +24,30 @@ using namespace std;
 #define INF 1001001001
 void solve()
 {
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
+    int n, s;
+    cin >> n >> s;
+    vector<int> a(n);
+    map<int, int> m;
+    for (int i = 0; i < n; i++)
     {
-        if (i & 1)
-        {
-            cout << "-1 ";
-        }
-        else
-        {
-            if (i == n)
-            {
-                cout << "2";
-            }
-            else
-            {
-                cout << "3 ";
-            }
-        }
+        cin >> a[i];
+        m[a[i]]++;
     }
-    cout << endl;
+    int sum = accumulate(all(a), 0ll);
+    if (s < sum or s == sum + 1)
+    {
+        for (int i = 1; i <= m[0]; i++)
+            cout << 0 << " ";
+        for (int i = 1; i <= m[2]; i++)
+            cout << 2 << " ";
+        for (int i = 1; i <= m[1]; i++)
+            cout << 1 << " ";
+        cout << endl;
+    }
+    else
+    {
+        cout << -1 << endl;
+    }
 }
 int32_t main()
 {

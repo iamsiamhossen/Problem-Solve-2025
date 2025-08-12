@@ -26,41 +26,25 @@ void solve()
 {
     int n, k;
     cin >> n >> k;
-    vector<int> a(n);
+    multiset<int> a, b;
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
+        int rd;
+        cin >> rd;
+        int x = rd % k;
+        x = min(x, abs(x - k));
+        a.insert(x);
     }
-    vector<int> b(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> b[i];
+        int rd;
+        cin >> rd;
+        int x = rd % k;
+        x = min(x, abs(x - k));
+        b.insert(x);
     }
-    vector<int> x;
-    for (auto u : a)
-    {
-        x.push_back(abs(k - u));
-        x.push_back(abs(k + u));
-    }
-    bool ok = true;
-    int cnt = 0;
-    sort(x.begin(), x.end());
-    map<int, int> m;
-    for (auto u : b)
-    {
-        int c = abs(u - k);
-        if (binary_search(x.begin(), x.end(), u) and m[u] < 1)
-        {
-            m[u]++;
-            cnt++;
-        }
-        if ((binary_search(x.begin(), x.end(), c)) and m[c] < 1)
-        {
-            m[c]++;
-            cnt++;
-        }
-    }
-    if (cnt >= n)
+
+    if (a == b)
         YES;
     else
         NO;
