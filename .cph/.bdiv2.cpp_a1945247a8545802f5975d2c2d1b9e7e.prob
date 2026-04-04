@@ -1,0 +1,1 @@
+{"name":"Local: bdiv2","url":"d:\\Phitron\\Problem Solve 2025\\bdiv2.cpp","tests":[{"id":1757344247933,"input":"3\n3 4\n1 2 3\n3 2\n1 2 3\n1 1000\n100000\n","output":"20\n8\n100000000\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Problem Solve 2025\\bdiv2.cpp","group":"local","local":true}

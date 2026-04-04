@@ -43,11 +43,9 @@ int32_t main()
 
         long long n;
         cin >> n;
-        for (int d : divisor[n])
-        {
-            cout << d << " ";
-        }
-        cout<<endl;
+        divisor[n].pop_back();
+        int x = *max_element(divisor[n].begin(), divisor[n].end());
+        cout << x << endl;
         // cout << countDivisor[n] << endl;
         // solve();
     }

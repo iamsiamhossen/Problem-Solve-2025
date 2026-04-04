@@ -1,7 +1,3 @@
-/**
- * Author: iamsiamhossen
- * Created: 29-05-2025 22:19:22
- **/
 #include <bits/stdc++.h>
 using namespace std;
 // fastread
@@ -17,16 +13,28 @@ using namespace std;
 #define NO cout << "NO\n"
 #define Yes cout << "Yes\n"
 #define No cout << "No\n"
-// MOD
-#define EPS 1e-9
-#define PI 3.1415926535897932384626433832795
-#define MOD 1000000007
-#define INF 1001001001
+
 void solve()
 {
-    for (int i = 1; i <= 50; i++)
+    int n;
+    cin >> n;
+    if (n == 1)
+        cout << 1 << endl;
+    else if (n == 2)
+        cout << 9 << endl;
+    else if (n == 3)
+        cout << 29 << endl;
+    else if (n == 4)
+        cout << 56 << endl;
+    else
     {
-        cout << i << " ";
+        int x = (n * n) - (n + 1);
+        int ans = x;
+        ans += x + 1;
+        ans += x - 1;
+        ans += x + n;
+        ans += x - n;
+        cout << ans << endl;
     }
 }
 int32_t main()
