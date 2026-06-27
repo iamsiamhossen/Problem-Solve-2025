@@ -1,6 +1,6 @@
 /**
  * Author: iamsiamhossen
- * Created: 24-06-2026 21:25:54
+ * Created: 27-06-2026 20:12:47
  **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -25,23 +25,36 @@ using namespace std;
 // int dx[4] = {-1, 1, -1, 1}, dy[4] = {-1, -1, 1, 1};
 void solve()
 {
-
     int n;
-	cin >> n;
-	if (n % 2 == 0){
-		for (int i = 0; i < n; i += 2){
-			cout << (i + 2) << ' ' << (i + 1) << ' ' << (i + 1) << ' ' << (i + 2) << ' ';
-			cout << (i + 1) << ' ' << (i + 2) << ' ' << (i + 2) << ' ' << (i + 1) << ' ';
-		}
-	}
-	else{
-		cout << "3 1 1 2 1 2 3 1 2 2 3 3 ";
-		for (int i = 3; i < n; i += 2){
-			cout << (i + 2) << ' ' << (i + 1) << ' ' << (i + 1) << ' ' << (i + 2) << ' ';
-			cout << (i + 1) << ' ' << (i + 2) << ' ' << (i + 2) << ' ' << (i + 1) << ' ';
-		}
-	}
-	cout << endl;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    int ans = 0, dis = 0;
+    for (int i = 0; i < n; i++)
+    {
+
+        unordered_map<int, int> mp;
+        while (i < n and a[i] != 1)
+        {
+            if (mp.find(a[i]) == mp.end())
+            {
+                dis++;
+                mp[a[i]]++;
+            }
+            if (i < n)
+            {
+                i++;
+            }
+        }
+    }
+    if (dis > 1)
+        ans += 2;
+    else if (dis == 1)
+        ans += 1;
+    cout << ans << endl;
 }
 int32_t main()
 {

@@ -1,0 +1,1 @@
+{"name":"Local: DuetJ","url":"d:\\Phitron\\Problem Solve 2025\\DuetJ.cpp","tests":[{"id":1782568743545,"input":"2\n3\n1 2 1\n4\n7 1 2 4","output":"YES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Phitron\\Problem Solve 2025\\DuetJ.cpp","group":"local","local":true}
