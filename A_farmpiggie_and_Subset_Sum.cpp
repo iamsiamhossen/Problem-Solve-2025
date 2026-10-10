@@ -28,6 +28,7 @@ void solve()
     int n;
     cin >> n;
     for (int i = 1; i <= n; i++)
+    
     {
         if (i == 1)
             continue;
